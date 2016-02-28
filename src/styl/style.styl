@@ -1,6 +1,13 @@
 @require 'vendorprefix.styl'
 @require 'config.styl'
 
+body
+  font 600 14px $font
+  background $background
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+
 h1
   font-size $h1-size
 
@@ -23,42 +30,16 @@ h1,h2,h3,h4,h5,h6
   margin 1.5em 0
 
 p
+  margin 1em 0
   font-size $p-size
   line-height $line-height
-  margin 1em 0
-  
-card()
-  display block
-  position relative
-  border 1px solid $line
-  background #FFFFFF
-  border-radius $border-radius
-  padding 90px 10px
-
-stripes()
-  background repeating-linear-gradient(
-  45deg,
-  #fff,
-  #fff 4px,
-  alpha(#465298, 0.1) 1px,
-  alpha(#465298, 0.1) 5px)
-
-body
-  font 400 10px $font
-  background #FFFFFF
+  color $paragraph
   
 a
   text-decoration none
   color $paragraph
-  font-weight 500
-  letter-spacing 0.2px
   &:hover
     color $purple
-
-.line
-    margin 10px 0
-    height 1px
-    background $line
     
 button
   outline none
@@ -67,8 +48,27 @@ button
   &:hover
   &.checked
     cursor pointer
+    
+/////////////////////// Misc
+    
+.gradient
+  z-index -1
+  position absolute
+  top 0
+  left 0
+  right 0
+  height 50vh
+  background: #ffffff;
+  background: -moz-linear-gradient(top,  #ffffff 20%, $background 100%);
+  background: -webkit-linear-gradient(top,  #ffffff 20%,$background 100%);
+  background: linear-gradient(to bottom,  #ffffff 20%,$background 100%);
 
-//\\//\\//\\//\\//\\//\\//\\//\\//\\ Padding fix to match grid
+.line
+    margin 10px 0
+    height 1px
+    background $line
+
+/////////////////////// Padding fix to match grid
 
 .hero,
 .filters
@@ -77,40 +77,40 @@ button
 .sidebar
   padding 0 0 0 15px
 
-//\\//\\//\\//\\//\\//\\//\\//\\//\\ Hero      
+/////////////////////// Hero
+
 .hero
   padding 100px 0 50px 0
   a 
     float left
     .logo
       width 130px
-      height 26px
+      height 24px
       background url(../img/logo.svg) left center no-repeat
       background-size contain
   h1 
-    color $paragraph
-    font-size 16px
-    font-weight 500
-    letter-spacing 0.2px
+    color $heading
+    font-size 17px
     margin 0
-    span
-      color $purple
-      font-weight 500
-      letter-spacing 0.2px
+  p 
+    font-size 15px
               
 
-//\\//\\//\\//\\//\\//\\//\\//\\//\\ Filters
+/////////////////////// Filters
 
 .filters
   span 
-    font-weight 500
-    letter-spacing 0.2px
-    font-size 13px
+    font-size 14px
+    font-weight 600
     color $heading
+
+.filters
   .device
     button
       padding 10px 0
       display block
+      
+.filters
   .orientation
     text-align center
     @media (min-width 600px)
@@ -120,21 +120,24 @@ button
       padding 0 10px
     button:last-of-type
       padding 0 0 0 10px
+      
+.filters
+  span.title
+    display block
+    padding 0 10px 15px 0
+    @media (min-width 600px)
+      display none
+      
+.filter
   .filter-list
     button
-      font-size 12px
+      font-size 13px
+      font-weight 600
       color $paragraph
-      font-weight 500
-      letter-spacing 0.2px
       &:hover
       &.checked
         color $purple
         cursor pointer
-    .title
-      display block
-      padding 0 10px 15px 0
-      @media (min-width 600px)
-        display none
         
 .filters.desktop
   display none
@@ -146,7 +149,7 @@ button
   @media (min-width 600px)
     display none
   
-//\\//\\//\\//\\//\\//\\//\\//\\//\\ Sidebar
+/////////////////////// Sidebar
 
 aside.sidebar
   font-size 0
@@ -155,122 +158,140 @@ aside.sidebar
     width 170px
     display inline-block
     vertical-align top
-  > *
-    font-size 14px
     
-//\\//\\//\\//\\//\\//\\//\\//\\//\\ Grid
+/////////////////////// Grid
+
+card()
+  position relative
+  display block
+  padding 90px 10px
+  background #FFFFFF
+  border-radius $border-radius
+  box-shadow 0px 26px 40px -24px rgba(0, 0, 0, 0.20)
+  
+
 section.grid
   font-size 0
   position relative
   @media (min-width 600px)
     width calc(100% - 180px)
     display inline-block
-  > *
-    font-size 14px
     
 .grid-content
   > .column.column.item
-    width 100%
     padding 25px
-    > .card
-      card()
-      text-align center
-      img
-        width 90%
-      &.border
-        border 1px solid $purple !important 
-      > .overlay
-        display none
-        position absolute
-        text-align center
-        z-index 1000
-        border-radius $border-radius        
-        top 0
-        left 0
-        bottom 0
-        right 0
-        height 100%
-        width 100%
-        background alpha(#ffffff, 0.9)
-        > span
-          position absolute
-          left 0
-          right 0
-          top 48%
+
+.card
+  card()
+  text-align center
+  transition 300ms
+  &.border
+    box-shadow 0px 5px 18px -8px rgba(0, 0, 0, 0.20) !important
+    transform scale(0.98)
+    opacity 0.7
+
+.card
+  img
+    width 90%
+
+.card
+  .overlay
+    display none
+    position absolute
+    text-align center
+    z-index 1000
+    border-radius $border-radius        
+    top 0
+    left 0
+    bottom 0
+    right 0
+    height 100%
+    width 100%
+    background alpha(#FBFCFD, 0.9)
+    span
+      position absolute
+      margin auto
+      width 100%
+      left 0
+      right 0
+      top 48%
+      color $purple
+      font-size 14px
+
+.card
+  input
+    z-index 1010
+    position absolute
+    top 26px
+    right 26px
+    cursor pointer
+    width 46px
+    height 46px
+    opacity 0
+
+.card
+  input
+    &:checked
+      ~ span
+        background #F1F4F8
+        > i.icon-plus
+          display none
+        > i.icon-check
+          display block !important
+      &:hover
+        ~ span
+          background #F1F4F8
+      ~ .overlay
+        display block !important
+    &:hover
+      ~ span
+        background #F7F9FA
+        > i 
           color $purple
-          font-size 14px
-      > input
-        z-index 1010
-        position absolute
-        top 20px
-        right 20px
+.card
+  > span
+    z-index 1000
+    position absolute
+    top 26px
+    right 26px
+    border-radius 36px
+    display block
+    width 46px
+    height 46px
+  > span i
+    position absolute
+    font-size 16px
+    left 15px
+    top 15px
+    color $purple
+    &.icon-plus
+      display block
+    &.icon-check
+      display none
+
+.card
+  .downloadzip
+    position absolute
+    color $purple
+    bottom 30px
+    left 0
+    right 0
+    margin 0
+    text-align center
+    font-size 14px
+    font-weight 600
+    span
+      &:hover
+        color alpha($purple, 0.8)
         cursor pointer
-        width 36px
-        height 36px
-        opacity 0
-        &:checked
-          ~ span
-            border 1px solid $purple
-            > i.icon-plus
-              display none
-            > i.icon-check
-              display block !important
-          ~ .overlay
-            display block !important
-          &:hover
-            ~ span
-              border 1px solid alpha($purple, 0.8)
-              > i 
-                color $purple
-        &:hover
-          ~ span
-            border 1px solid alpha($purple, 0.8)
-            > i 
-              color $purple
-      > span
-        z-index 1000
-        position absolute
-        top 20px
-        right 20px
-        border-radius $border-radius
-        display block
-        border 1px solid rgba(0,0,0,0)
-        width 36px
-        height 36px
-        > i
-          position absolute
-          font-size 15px
-          left 9px
-          top 9px
-          color $purple
-          &.icon-plus
-            display block
-          &.icon-check
-            display none
-      > .downloadzip
-        position absolute
-        color $purple
-        bottom 30px
-        left 0
-        right 0
-        margin auto
-        text-align center
-        font-size 14px
-        font-weight 500
-        letter-spacing 0.2px
-        span
-          &:hover
-            color alpha($purple, 0.8)
-            cursor pointer
           
 .end 
   text-align center
   font-size 13px
   color $paragraph
-  padding 15px 0 45px 0
+  padding 30px 0 55px 0
   font-style italic
-  font-weight 500
-  letter-spacing 0.2px
+  font-weight 600
   a 
     color $paragraph
     border-bottom 1px solid $line
@@ -298,37 +319,44 @@ section.grid
 .zipit
   display none
   
-//\\//\\//\\//\\//\\//\\//\\//\\//\\ Footer
+/////////////////////// Footer
     
 .footer
   position relative
+  
+.footer
   .wrap 
     padding 0 25px
+    
+.footer
   .footer-links
-    padding 100px 0
+    padding 150px 0
+    
+.footer
   h6
     margin 0.5em auto
-    font-weight 500
-    letter-spacing 0.2px
+    font-weight 600
     width 50%
     color $heading
+
+.footer
   ul 
     margin 0 auto
     list-style none
     width 50%
     li 
-      font-size 13px
+      font-size 14px
       padding 5px 0
       a
         color $paragraph
-        font-weight 500
-        letter-spacing 0.2px
+        font-weight 600
         &:hover
           color $purple
+          
+.footer
   p 
     text-align center
-    font-weight 500
-    letter-spacing 0.2px
+    font-weight 600
     color $paragraph
     a 
       color $paragraph
@@ -336,6 +364,8 @@ section.grid
       &:hover
         color $purple
         border-bottom 1px solid $purple
+
+.footer
   span 
     position relative
     display inline-block
@@ -349,7 +379,7 @@ section.grid
       font-size 16px
       
   
-//\\//\\//\\//\\//\\//\\//\\//\\//\\ Download Collection
+/////////////////////// Download Collection
 
 .download-collection
   z-index 9999
@@ -360,6 +390,8 @@ section.grid
   margin auto
   transform translateY(200%)
   transition 300ms
+  
+.download-collection
   button
     width 100%
     font-size 13px
@@ -418,7 +450,7 @@ section.grid
     -webkit-transform translate3d(0, 0, 0)
     transform translate3d(0, 0, 0)
     
-//\\//\\//\\//\\//\\//\\//\\//\\//\\ Downloading Alert
+/////////////////////// Downloading Alert
 .alert-wrap
   z-index 9999
   position fixed
@@ -430,22 +462,24 @@ section.grid
   transition 300ms
   &.appear
     transform translateY(0)
-  .alert 
-    padding 25px
-    background $purple
-    border-radius $border-radius + 4px
-    transition 300ms
-    transform scale(0.98)
-    &.shadow
-      transform scale(1)
-      box-shadow  0px 20px 40px -20px rgba(0,0,0,0.8)
-    .alert-label
-      color #fff
-      font-size 14px
-      padding-left 60px
-      span 
-        position absolute
-        top 24px
-        left 40px
-      span i
-        font-size 22px
+    
+.alert 
+  padding 25px
+  background $purple
+  border-radius $border-radius + 4px
+  transition 300ms
+  transform scale(0.98)
+  &.shadow
+    transform scale(1)
+    box-shadow  0px 20px 40px -20px rgba(0,0,0,0.8)
+    
+.alert-label
+  color #fff
+  font-size 14px
+  padding-left 60px
+  span 
+    position absolute
+    top 24px
+    left 40px
+  span i
+    font-size 22px
