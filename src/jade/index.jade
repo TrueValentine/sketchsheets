@@ -12,6 +12,10 @@ html(lang="en")
     meta(name='twitter:description', content='Download free printable device templates for UI & UX designers. Each sketch sheet contains a blank and dotted-grid version in .pdf, .png, and .eps formats.')
     link(rel='stylesheet', href='css/style.css')
   body     
+  
+    // BG Gradient
+    
+    .gradient
     
     // Header
     
@@ -22,7 +26,8 @@ html(lang="en")
             a(href='/')
               .logo
           .column.twelve
-            h1 Ready to print device templates for UI & UX designers
+            h1 Ready to print device templates for UI & UX designers.
+            p All files contain a blank and dotted grid template in .png and .pdf formats.
             
     // Orientation Filter
     
@@ -57,7 +62,7 @@ html(lang="en")
                   // button.button(data-filter='.iphone6plus') iPhone 6 Plus
                   button.button(data-filter='.ipad') iPad
                   // button.button(data-filter='.ipadpro') iPad Pro
-                  // button.button(data-filter='.web') Web / Desktop
+                  button.button(data-filter='.web') Web
                   
       section.filters.mobile
         .wrap
@@ -80,6 +85,7 @@ html(lang="en")
             include includes/iphone6.jade
             // include includes/iphone6plus.jade
             include includes/ipad.jade
+            include includes/web.jade
           input(type='submit' name='zipit' class='zipit')
           .end
             p #[a(href='spotify:track:5UgT7w6zVZjP3oyawMzbiK') This is the end]
