@@ -48,8 +48,12 @@ var config = {
     src: './src/favicons/**',
     destination: 'dist/'
   },
-  sketchsheets: {
+  thumbs: {
     src: './src/sketchsheets/**/thumb.png',
+    destination: 'dist/sketchsheets'
+  },
+  sketchsheets: {
+    src: './src/sketchsheets/**',
     destination: 'dist/sketchsheets'
   },
   fonts: {
@@ -134,11 +138,17 @@ gulp.task('fav', function() {
     .pipe(newer(config.fav.destination))
     .pipe(gulp.dest(config.fav.destination));
 });
+gulp.task('thumbs', function() {
+  return gulp.src(config.thumbs.src)
+    .pipe(plumber())
+    .pipe(newer(config.thumbs.destination))
+    .pipe(image())
+    .pipe(gulp.dest(config.thumbs.destination));
+});
 gulp.task('sketchsheets', function() {
   return gulp.src(config.sketchsheets.src)
     .pipe(plumber())
     .pipe(newer(config.sketchsheets.destination))
-    .pipe(image())
     .pipe(gulp.dest(config.sketchsheets.destination));
 });
 
@@ -163,6 +173,6 @@ gulp.task('watch', function() {
 });
 
 // Command line tasks
-gulp.task('build', ['index', 'zip', 'stylus', 'css', 'js', 'img', 'fav', 'sketchsheets', 'fonts', 'sitemap']);
+gulp.task('build', ['index', 'zip', 'stylus', 'css', 'js', 'img', 'fav', 'thumbs', 'sketchsheets', 'fonts', 'sitemap']);
 gulp.task('w', ['build', 'watch']);
 gulp.task('default', ['build', 'webserver', 'watch', 'openbrowser']);
