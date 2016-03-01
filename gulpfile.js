@@ -49,7 +49,7 @@ var config = {
     destination: 'dist/'
   },
   sketchsheets: {
-    src: './src/sketchsheets/**',
+    src: './src/sketchsheets/**/thumb.png',
     destination: 'dist/sketchsheets'
   },
   fonts: {
