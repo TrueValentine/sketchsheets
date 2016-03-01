@@ -55,6 +55,10 @@ var config = {
   fonts: {
     src: './src/fonts/**',
     destination: 'dist/fonts'
+  },
+  sitemap: {
+    src: './src/sitemap.xml',
+    destination: 'dist/'
   }
 };
 
@@ -145,6 +149,13 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(config.fonts.destination));
 });
 
+// Sitemap
+gulp.task('sitemap', function() {
+  return gulp.src(config.sitemap.src)
+    .pipe(plumber())
+    .pipe(gulp.dest(config.sitemap.destination));
+});
+
 // Watch files
 gulp.task('watch', function() {
   log('Watching files');
@@ -152,6 +163,6 @@ gulp.task('watch', function() {
 });
 
 // Command line tasks
-gulp.task('build', ['index', 'zip', 'stylus', 'css', 'js', 'img', 'fav', 'sketchsheets', 'fonts']);
+gulp.task('build', ['index', 'zip', 'stylus', 'css', 'js', 'img', 'fav', 'sketchsheets', 'fonts', 'sitemap']);
 gulp.task('w', ['build', 'watch']);
 gulp.task('default', ['build', 'webserver', 'watch', 'openbrowser']);
