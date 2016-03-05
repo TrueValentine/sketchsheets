@@ -57,9 +57,8 @@ html(lang="en")
                   button.button.checked(data-filter='') All
                   button.button(data-filter='.iphone5') iPhone 5
                   button.button(data-filter='.iphone6') iPhone 6
-                  // button.button(data-filter='.iphone6plus') iPhone 6 Plus
                   button.button(data-filter='.ipad') iPad
-                  // button.button(data-filter='.ipadpro') iPad Pro
+                  button.button(data-filter='.applewatch') Apple Watch
                   button.button(data-filter='.web') Web
                   
       section.filters.mobile
@@ -81,8 +80,8 @@ html(lang="en")
           .row.justify.grid-content
             include includes/iphone5.jade
             include includes/iphone6.jade
-            // include includes/iphone6plus.jade
             include includes/ipad.jade
+            include includes/applewatch.jade
             include includes/web.jade
           input(type='submit' name='zipit' class='zipit')
           .end
