@@ -52,6 +52,7 @@ button
 /////////////////////// Misc
     
 .gradient
+  opacity 0.4
   z-index -1
   position absolute
   top 0
@@ -90,7 +91,7 @@ button
       background-size contain
   h1 
     color $paragraph
-    font-size 18px
+    font-size 20px
     margin 0
   p 
     font-size 15px
@@ -167,7 +168,7 @@ card()
   padding 90px 10px
   background #FFFFFF
   border-radius $border-radius
-  box-shadow 0px 26px 40px -24px rgba(0, 0, 0, 0.20)
+  box-shadow 0px 26px 40px -24px rgba(0, 36, 100, 0.30)
   
 
 section.grid
@@ -189,6 +190,14 @@ section.grid
     box-shadow 0px 5px 18px -8px rgba(0, 0, 0, 0.20) !important
     transform scale(0.98)
     opacity 0.7
+    
+.card
+  .title
+    position absolute
+    top 40px
+    left 40px
+    font-size 12px
+    color $paragraph
 
 .card
   img
