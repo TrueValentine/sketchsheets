@@ -3,7 +3,7 @@
 mixin sketchsheet(title, device, filters, dir)
   .column.item(class='#{filters}')
     .card
-      .title #{title}
+      .card-title #{title}
       input(type='checkbox' name='files[]' value='#{dir}')
       .overlay
         span Added to collection
