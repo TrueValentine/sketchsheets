@@ -1,8 +1,9 @@
 //- includes/mixins.jade
 
-mixin sketchsheet(device, filters, dir)
+mixin sketchsheet(title, device, filters, dir)
   .column.item(class='#{filters}')
     .card
+      .title #{title}
       input(type='checkbox' name='files[]' value='#{dir}')
       .overlay
         span Added to collection
