@@ -215,9 +215,7 @@ aside.sidebar
 /////////////////////// Grid
 
 card()
-  position relative
   display block
-  padding 90px 10px
   background #FFFFFF
   border-radius $border-radius
   box-shadow 0px 26px 40px -24px rgba(0, 36, 100, 0.30)
@@ -236,6 +234,8 @@ section.grid
 
 .card
   card()
+  position relative
+  padding 90px 10px
   text-align center
   transition 300ms
   &.border
@@ -556,3 +556,32 @@ section.grid
     left 40px
   span i
     font-size 22px
+    
+////////////////////////// 404
+
+.broken-card
+  position absolute !important
+  top 0
+  left 0
+  right 0
+  bottom 0
+  margin auto
+  width 80%
+  max-width 800px
+  max-height 400px
+  card()
+  padding 100px 50px
+  
+.broken-card
+  text-align center
+  p 
+    font-size 16px
+  a
+    position absolute
+    bottom 30px
+    display inline-block
+    left 0
+    right 0
+    color $purple
+    &:hover
+      color alpha($purple, 0.8)

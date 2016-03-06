@@ -21,7 +21,7 @@ var config = {
     path: '/dist'
   },
   index: {
-    src: './src/jade/index.jade',
+    src: './src/jade/*.jade',
     destination: 'dist/'
   },
   zip: {
@@ -91,7 +91,6 @@ gulp.task('index', function() {
       pretty: false,
       locals: locs 
     }))
-    .pipe(rename('index.html'))
     .pipe(gulp.dest(config.index.destination));
 });
 gulp.task('zip', function() {
