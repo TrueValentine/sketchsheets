@@ -82,25 +82,40 @@ button
 
 .hero
   padding 25px 0 20px 0
-  a 
-    float left
-    .logo
-      width 180px
-      height 24px
-      background url(../img/logo.svg) left center no-repeat
-      background-size contain
-  h1 
-    color $heading
-    font-size 22px
-    margin 0
-  p 
-    font-size 15px
-    margin 0.5em 0
+  
+.hero
+  .logo-wrap
+    a 
+      float left
+      .logo
+        width 180px
+        height 24px
+        background url(../img/logo.svg) left center no-repeat
+        background-size contain
 
+.hero
+  .nav-wrap
+    a 
+      position relative
+      float right
+      font-size 13px
+      padding-left 24px
+      i 
+        position absolute
+        left 0
+        font-size 18px
+        
 .hero
   .column.column.about
     text-align center
     padding 60px 0 10px 0
+    h1 
+      color $heading
+      font-size 22px
+      margin 0
+    p 
+      font-size 15px
+      margin 0.5em 0
               
 
 /////////////////////// Filters
