@@ -32,10 +32,12 @@ html(lang="en")
           .column.twelve.about
             h1 Ready to print device templates for UI & UX designers.
             p All files contain a blank and dotted grid template in .png and .pdf formats.
+          .column.twelve.mobile
+            .line
             
     // Orientation Filter
     
-    section.filters.desktop
+    section.filters.orientation-desktop
       .wrap
         .row
           .column
@@ -56,7 +58,7 @@ html(lang="en")
         .row
           .column
             // Device Filter
-            .filters  
+            .filters
               .filter.device
                 .filter-list(data-filter-group='device')
                   span.title Devices
@@ -67,17 +69,20 @@ html(lang="en")
                   button.button(data-filter='.applewatch') Apple Watch
                   button.button(data-filter='.web') Web
                   
-      section.filters.mobile
+      // Orientation Filter
+                  
+      section.filters.orientation-mobile
         .wrap
           .row
             .column
               .filter.orientation
                 .filter-list(data-filter-group='orientation')
-                  span Sort by:
+                  span.title Sort by
                   button.button.checked(data-filter='') All
                   button.button(data-filter='.portrait') Portrait
                   button.button(data-filter='.landscape') Landscape
                   button.button(data-filter='.portrait-landscape') Mix
+              .line
                 
       // Sketchsheets
 

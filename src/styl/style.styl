@@ -4,7 +4,6 @@
 body
   font 600 14px $font
   background $background
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
 
@@ -74,9 +73,11 @@ button
 .hero,
 .filters
   .column.column
-    padding 15px 25px
+    @media (min-width 600px)
+      padding 15px 25px
 .sidebar
-  padding 0 0 0 15px
+  @media (min-width 600px)
+    padding 0 0 0 15px
 
 /////////////////////// Hero
 
@@ -85,21 +86,35 @@ button
   
 .hero
   .logo-wrap
+    margin 10px 0
+    @media (min-width 600px)
+      margin 0
+    text-align center
     a 
-      float left
+      position relative
+      margin auto
+      display inline-block
+      @media (min-width 600px)
+        float left
       .logo
-        width 180px
+        width 122px
         height 24px
         background url(../img/logo.svg) left center no-repeat
         background-size contain
 
 .hero
   .nav-wrap
+    margin 10px 0
+    @media (min-width 600px)
+      margin 0
+    text-align center
     a 
       position relative
-      float right
       font-size 13px
       padding-left 24px
+      margin auto
+      @media (min-width 600px)
+        float right
       i 
         position absolute
         left 0
@@ -108,7 +123,9 @@ button
 .hero
   .column.column.about
     text-align center
-    padding 60px 0 10px 0
+    padding 50px 20px 50px 20px
+    @media (min-width 600px)
+      padding 60px 30px 10px 30px
     h1 
       color $heading
       font-size 22px
@@ -116,6 +133,11 @@ button
     p 
       font-size 15px
       margin 0.5em 0
+      
+.hero
+  .mobile
+    @media (min-width 600px)
+      display none
               
 
 /////////////////////// Filters
@@ -125,13 +147,21 @@ button
     font-size 14px
     font-weight 600
     color $heading
+    text-align center
+    @media (min-width 600px)
+      text-align left
 
 .filters
-  .device
+  .filter.device
+    padding-bottom 15px
+    text-align center
     button
-      padding 10px 0
-      display block
-      
+      display inline-block
+      padding 5px 10px
+      @media (min-width 600px)
+        padding 10px 0
+        display block
+
 .filters
   .orientation
     text-align center
@@ -146,7 +176,7 @@ button
 .filters
   span.title
     display block
-    padding 0 10px 15px 0
+    padding 0 0 15px 0
     @media (min-width 600px)
       display none
       
@@ -161,15 +191,16 @@ button
         color $purple
         cursor pointer
         
-.filters.desktop
+.filters.orientation-desktop
   display none
   @media (min-width 600px)
     display block
         
-.filters.mobile
-  margin-top 50px
+.filters.orientation-mobile
   @media (min-width 600px)
     display none
+  .line
+    margin-top 50px
   
 /////////////////////// Sidebar
 
@@ -414,10 +445,15 @@ section.grid
 .download-collection
   z-index 9999
   position fixed
-  width 260px
-  right 50px
-  bottom 50px
   margin auto
+  width 260px
+  left 0
+  right 0
+  bottom 40px
+  @media (min-width 600px)
+    width 260px
+    right 50px
+    bottom 50px
   transform translateY(200%)
   transition 300ms
   
@@ -484,10 +520,14 @@ section.grid
 .alert-wrap
   z-index 9999
   position fixed
-  width 300px
-  right 50px
-  bottom 50px
   margin auto
+  width 300px
+  bottom 40px
+  left 0
+  right 0
+  @media (min-width 600px)
+    right 50px
+    bottom 50px
   transform translateY(200%)
   transition 300ms
   &.appear
