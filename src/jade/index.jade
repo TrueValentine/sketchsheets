@@ -66,8 +66,9 @@ html(lang="en")
                   button.button(data-filter='.iphone5') iPhone 5
                   button.button(data-filter='.iphone6') iPhone 6
                   button.button(data-filter='.ipad') iPad
-                  button.button(data-filter='.applewatch') Apple Watch
+                  button.button(data-filter='.galaxynote5') Galaxy Note 5
                   button.button(data-filter='.web') Web
+                  button.button(data-filter='.applewatch') Apple Watch
                   
       // Orientation Filter
                   
@@ -92,8 +93,9 @@ html(lang="en")
             include includes/iphone5.jade
             include includes/iphone6.jade
             include includes/ipad.jade
-            include includes/applewatch.jade
+            include includes/galaxynote5.jade
             include includes/web.jade
+            include includes/applewatch.jade
           input(type='submit' name='zipit' class='zipit')
           .end
             p #[a(href='spotify:track:5UgT7w6zVZjP3oyawMzbiK') This is the end]
@@ -119,3 +121,11 @@ html(lang="en")
             
     include includes/footer.jade
     include includes/scripts.jade
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36796299-3', 'auto');
+      ga('send', 'pageview');

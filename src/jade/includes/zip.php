@@ -1,3 +1,4 @@
+<?php Header("Content-Type: application/x-javascript; charset=UTF-8"); ?>
 <?php
 
     $error = ""; // error holder
