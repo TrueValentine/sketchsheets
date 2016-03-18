@@ -10,5 +10,5 @@ after_success:
   - echo "key" > deploy_key.pem
   - chmod 600 .travis/deploy_key.pem
   - ssh-add .travis/deploy_key.pem
-  - git remote add deploy /srv/users/serverpilot/apps/sketchsheets/repo/site.git
+  - git remote add deploy /srv/users/serverpilot/apps/sketchsheets/repo/sketchsheets.git
   - git push deploy
