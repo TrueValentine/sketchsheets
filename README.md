@@ -20,3 +20,5 @@ Free [sketch sheets](http://sketchsheets.com) for UI &amp; UX designers
 `$ gulp w` watches for changes and builds to `dist`
 
 `$ gulp build` builds all of the files from the `src` folder to the `dist` folder, without watching or opening your browser
+
+w
