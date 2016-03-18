@@ -1,12 +1,14 @@
 language: node_js
 node_js:
-  - "4.4.0"
+- 4.4.0
 before_script:
-  - npm install
-  - gulp build
+- npm install
+- gulp build
 after_success:
-  - eval "$(ssh-agent -s)" 
-  - chmod 600 .travis/deploy_key.pem
-  - ssh-add .travis/deploy_key.pem
-  - git remote add deploy /srv/users/serverpilot/apps/sketchsheets/repo/sketchsheets.git
-  - git push deploy
+- eval "$(ssh-agent -s)"
+- chmod 600 deploy-key
+- mv deploy-key ~/.ssh/id_rsa
+- git remote add deploy /srv/users/serverpilot/apps/sketchsheets/.git
+- git push deploy
+before_install:
+- bash install.sh
