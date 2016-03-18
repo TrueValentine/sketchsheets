@@ -1,8 +1,6 @@
-language: ruby
-rvm:
- - "1.8.7"
- - "1.9.2"
- - "1.9.3"
- - rbx
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
+language: node_js
+node_js:
+  - "0.10"
+before_script:
+  - npm install -g gulp
+  - gulp build
