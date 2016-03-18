@@ -10,5 +10,6 @@ after_success:
 - mv deploy-key ~/.ssh/id_rsa
 - git remote add deploy /srv/users/serverpilot/apps/sketchsheets/.git
 - git push deploy
+- bash deploy.sh
 before_install:
 - bash install.sh
