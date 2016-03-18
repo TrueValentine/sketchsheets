@@ -5,10 +5,11 @@ before_script:
   - npm install -g gulp
   - npm install
   - gulp build
+env:
+  - KEY=key
 after_success:
   - eval "$(ssh-agent -s)" 
-  - echo "key" > deploy_key.pem
-  - chmod 600 .travis/deploy_key.pem
-  - ssh-add .travis/deploy_key.pem
+  - chmod 600 KEY
+  - ssh-add KEY
   - git remote add deploy /srv/users/serverpilot/apps/sketchsheets/repo/sketchsheets.git
   - git push deploy
