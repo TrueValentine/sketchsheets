@@ -18,51 +18,51 @@ var config = {
   server: {
     host: 'localhost',
     port: '4000',
-    path: '/public'
+    path: '/dist'
   },
   index: {
     src: './src/jade/*.jade',
-    destination: 'public/'
+    destination: 'dist/'
   },
   zip: {
     src: './src/jade/includes/zip.php',
-    destination: 'public/'
+    destination: 'dist/'
   },
   stylus: {
     src: './src/styl/app.styl',
-    destination: 'public/css'
+    destination: 'dist/css'
   },
   css: {
     src: './src/css/**',
-    destination: 'public/css'
+    destination: 'dist/css'
   },
   js: {
     src: './src/js/**',
-    destination: 'public/js'
+    destination: 'dist/js'
   },
   img: {
     src: './src/img/**',
-    destination: 'public/img'
+    destination: 'dist/img'
   },
   fav: {
     src: './src/favicons/**',
-    destination: 'public/'
+    destination: 'dist/'
   },
   thumbs: {
     src: './src/sketchsheets/**/thumb.png',
-    destination: 'public/sketchsheets'
+    destination: 'dist/sketchsheets'
   },
   sketchsheets: {
     src: './src/sketchsheets/**',
-    destination: 'public/sketchsheets'
+    destination: 'dist/sketchsheets'
   },
   fonts: {
     src: './src/fonts/**',
-    destination: 'public/fonts'
+    destination: 'dist/fonts'
   },
   sitemap: {
     src: './src/sitemap.xml',
-    destination: 'public/'
+    destination: 'dist/'
   }
 };
 
