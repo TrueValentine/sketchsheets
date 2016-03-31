@@ -105,12 +105,12 @@ button
   .row:nth-of-type(2)
     h1 
       text-align center
-      color $dark-text
+      color $darker-text
       font-size 18px
       font-weight 600
       margin 0
   .row:nth-of-type(3)
-    padding 30px 0 20px 0
+    padding 40px 0 20px 0
 
 /////////////////////// Filters
 
@@ -129,7 +129,10 @@ button
       font-weight 600
       border 1.5px dashed $dark-text
       color $dark-text
+      transition 200ms
       &:hover
+        border 1.5px solid $darker-text
+        color $darker-text
       &.checked
         color #fff
         background $purple
