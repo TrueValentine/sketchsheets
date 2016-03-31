@@ -159,18 +159,68 @@ section.grid
     width $screen-desktop-xlarge
     
 .grid-content
-  > .column.column.item
+  > .column.column.item,
+  .column.column.stamp
     padding 25px
     width 100%
-  @media (min-width 700px)
-    > .column.column.item
+    @media (min-width 700px)
       width (100/2) + '%'
-  @media (min-width 1050px)
-    > .column.column.item
+    @media (min-width 1050px)
       width (100/3) + '%'
-  @media (min-width $screen-desktop-xlarge)
-    > .column.column.item
+    @media (min-width $screen-desktop-xlarge)
       width (100/4) + '%'
+      
+//////////////////// Carbonads
+
+.grid-content
+  > .column.column.stamp
+    position absolute
+    top 0
+    left 0
+
+.card-ad
+  background $dark
+  border-radius $border-radius
+  position relative
+  display inline-block
+  width 300px
+  height 390px
+  padding 105px 10px
+  text-align center
+  
+#carbonads 
+  display inline-block
+  overflow hidden
+  padding 1em
+  font-family 'Verdana', 'Helvetica Neue', Helvetica, sans-serif
+  line-height 1.5
+
+#carbonads span 
+  display block
+  overflow hidden
+
+.carbon-text 
+  display block
+  margin-bottom 1em
+  text-align left
+  width 100px
+  margin-left auto
+  margin-right auto
+
+.carbon-img 
+  display block
+  margin 0 auto 1em
+  text-align center
+
+.carbon-poweredby 
+  display block
+  text-align right
+  position absolute
+  bottom 20px
+  right 20px
+  font-size .8em
+  
+//////////////////// Sketchsheets
 
 .card
   card()

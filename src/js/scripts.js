@@ -3,8 +3,10 @@ $(document).ready( function() {
   // init Isotope
   var $grid = $('.grid-content').imagesLoaded( function() {
     $grid.isotope({
+      layoutMode: 'masonry',
       itemSelector: '.item',
-      transitionDuration: '0.6s',
+      transitionDuration: '0.5s',
+      stamp: '.stamp',
     });
   });
   
