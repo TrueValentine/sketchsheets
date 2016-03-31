@@ -51,7 +51,7 @@ plan.remote('deploy', function(remote) {
     remote.log('Building...');
     remote.exec('cd repo && gulp build');
 		remote.exec('cp -R repo/dist ' + versionFolder);
-		remote.exec('ln -fsn ' + 'repo/dist ' + versionFolder + ' public');
+		remote.exec('ln -fsn ' + versionFolder + ' public');
 
 		if (remote.runtime.maxDeploys > 0) {
 			remote.log('Cleaning up old deploys...');
