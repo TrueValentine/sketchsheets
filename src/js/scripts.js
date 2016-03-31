@@ -1,5 +1,9 @@
 $(document).ready( function() {
   
+  if(!document.getElementById('fSm')){
+    $('.smiley').show();
+  }
+  
   // init Isotope
   var $grid = $('.grid-content').imagesLoaded( function() {
     $grid.isotope({
