@@ -1,7 +1,7 @@
 Sketchsheets
 ============
 
-Free [sketch sheets](http://sketchsheets.com) for UI &amp; UX designers
+Free [device sketch sheets](http://sketchsheets.com)
 [sketchsheets.com](http://sketchsheets.com)
 
 ### Installation
@@ -15,8 +15,6 @@ Free [sketch sheets](http://sketchsheets.com) for UI &amp; UX designers
 
 ### Usage
 
-`$ gulp` builds all of the files from the `src` folder to the `dist` folder, watches for changes, and then opens/reloads your browser at http://localhost:4000/dist
+`$ gulp` builds all of the files from the `src` folder to the `dist` folder, and watches for changes.
 
-`$ gulp w` watches for changes and builds to `dist`
-
-`$ gulp build` builds all of the files from the `src` folder to the `dist` folder, without watching or opening your browser
+`$ gulp build` builds all of the files from the `src` folder to the `dist` folder, but doesn't watch.

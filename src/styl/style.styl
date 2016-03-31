@@ -3,6 +3,7 @@
 
 body
   font 600 14px $font
+  letter-spacing -0.5px
   background $background
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
@@ -47,44 +48,17 @@ button
   &:hover
   &.checked
     cursor pointer
-    
-/////////////////////// Misc
-    
-.gradient
-  opacity 0.4
-  z-index -1
-  position absolute
-  top 0
-  left 0
-  right 0
-  height 50vh
-  background: #ffffff;
-  background: -moz-linear-gradient(top,  #ffffff 20%, $background 100%);
-  background: -webkit-linear-gradient(top,  #ffffff 20%,$background 100%);
-  background: linear-gradient(to bottom,  #ffffff 20%,$background 100%);
 
-.line
-    margin 10px 0
-    height 1px
-    background $line
+/////////////////////// Header
 
-/////////////////////// Padding fix to match grid
-
-.hero,
-.filters
-  .column.column
-    @media (min-width 600px)
-      padding 15px 25px
-.sidebar
-  @media (min-width 600px)
-    padding 0 0 0 15px
-
-/////////////////////// Hero
-
-.hero
-  padding 25px 0 20px 0
+.header
+  background $dark
+  .row
+    margin auto
+    @media (min-width $screen-desktop-xlarge)
+      width $screen-desktop-xlarge
   
-.hero
+.header
   .logo-wrap
     margin 10px 0
     @media (min-width 600px)
@@ -102,144 +76,105 @@ button
         background url(../img/logo.svg) left center no-repeat
         background-size contain
 
-.hero
+.header
   .nav-wrap
     margin 10px 0
     @media (min-width 600px)
       margin 0
     text-align center
     a 
+      color $dark-text
       position relative
-      font-size 13px
-      padding-left 24px
+      font-size 14px
+      padding 12px
       margin auto
+      &:hover
+        color $purple
       @media (min-width 600px)
+        &:first-of-type
+          padding-right 0
         float right
       i 
         position absolute
         left 0
         font-size 18px
         
-.hero
-  .column.column.about
-    text-align center
-    padding 50px 20px 50px 20px
-    @media (min-width 600px)
-      padding 60px 30px 10px 30px
+.header
+  .row:nth-of-type(1)
+    padding 20px 20px 30px 20px
+  .row:nth-of-type(2)
     h1 
-      color $heading
-      font-size 22px
+      text-align center
+      color $dark-text
+      font-size 18px
+      font-weight 600
       margin 0
-    p 
-      font-size 15px
-      margin 0.5em 0
-      a 
-        color $paragraph
-        border-bottom 1px solid $line
-        &:hover
-          color $purple
-          border-bottom 1px solid $purple
-      
-.hero
-  .mobile
-    @media (min-width 600px)
-      display none
-              
+  .row:nth-of-type(3)
+    padding 30px 0 20px 0
 
 /////////////////////// Filters
 
 .filters
-  span 
-    font-size 14px
-    font-weight 600
-    color $heading
-    text-align center
-    @media (min-width 600px)
-      text-align left
-
-.filters
   .filter.device
-    padding-bottom 15px
     text-align center
-    button
-      display inline-block
-      padding 5px 10px
-      @media (min-width 600px)
-        padding 10px 0
-        display block
-
-.filters
-  .orientation
-    text-align center
-    @media (min-width 600px)
-      float right
-    span
-    button
-      padding 0 10px
-    button:last-of-type
-      padding 0 0 0 10px
-      
-.filters
-  span.title
-    display block
-    padding 0 0 15px 0
-    @media (min-width 600px)
-      display none
       
 .filter
   .filter-list
-    button
-      font-size 13px
+    button.button
+      display inline-block
+      padding 12px 25px
+      margin 8px
+      border-radius 100px
+      font-size 12px
       font-weight 600
-      color $paragraph
+      border 1px dashed $dark-text
+      color $dark-text
       &:hover
       &.checked
-        color $purple
+        color #fff
+        background $purple
+        border 1px solid $purple
         cursor pointer
-        
-.filters.orientation-desktop
-  display none
-  @media (min-width 600px)
-    display block
-        
-.filters.orientation-mobile
-  @media (min-width 600px)
-    display none
-  .line
-    margin-top 50px
-  
-/////////////////////// Sidebar
 
-aside.sidebar
-  font-size 0
-  position relative
-  @media (min-width 600px)
-    width 170px
-    display inline-block
-    vertical-align top
-    
 /////////////////////// Grid
 
 card()
-  display block
+  display inline-block
   background #FFFFFF
   border-radius $border-radius
   box-shadow 0px 26px 40px -24px rgba(0, 36, 100, 0.30)
   
-
 section.grid
   font-size 0
   position relative
-  @media (min-width 600px)
-    width calc(100% - 180px)
-    display inline-block
+  margin 20px auto
+  width 100%
+  @media (min-width 350px)
+    width 350px
+  @media (min-width 700px)
+    width 700px
+  @media (min-width 1050px)
+    width 1050px
+  @media (min-width $screen-desktop-xlarge)
+    width $screen-desktop-xlarge
     
 .grid-content
   > .column.column.item
     padding 25px
+    width 100%
+  @media (min-width 700px)
+    > .column.column.item
+      width (100/2) + '%'
+  @media (min-width 1050px)
+    > .column.column.item
+      width (100/3) + '%'
+  @media (min-width $screen-desktop-xlarge)
+    > .column.column.item
+      width (100/4) + '%'
 
 .card
   card()
+  width 300px
   position relative
   padding 90px 10px
   text-align center
@@ -254,7 +189,7 @@ section.grid
     position absolute
     top 40px
     left 40px
-    font-size 12px
+    font-size 11px
     color $paragraph
 
 .card
@@ -366,18 +301,6 @@ section.grid
       color $purple
       border-bottom 1px solid $purple
           
-@media (min-width 900px)
-  section
-    .row
-      > .column.column.item
-        width 50%
-        
-@media (min-width 1200px)
-  section
-    .row
-      > .column.column.item
-        width (100/3) + '%'
-          
 .download
   margin-bottom 20px
   button
@@ -390,6 +313,7 @@ section.grid
     
 .footer
   position relative
+  background $dark
   
 .footer
   .wrap 

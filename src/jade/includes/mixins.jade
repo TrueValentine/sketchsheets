@@ -12,4 +12,4 @@ mixin sketchsheet(title, device, filters, dir)
         i.icon-check
       img(src='sketchsheets/#{dir}/thumb.png' alt='#{filters}')
       .downloadzip
-        <span data-src='#{dir}' ga('send', 'event', 'Sketchsheet', 'Download', '#{device}', '0')>Download</span>
+        span(data-src='#{dir}') Download

@@ -8,18 +8,11 @@ var gulp = require('gulp'),
     newer = require('gulp-newer'),
     image = require('gulp-image'),
     plumber = require('gulp-plumber'),
-    webserver = require('gulp-webserver'),
-    sourcemaps = require('gulp-sourcemaps'),
-    opn = require('opn');
+    sourcemaps = require('gulp-sourcemaps');
 
 // Config
 var config = {
   watch: './src/**/*.*',
-  server: {
-    host: 'localhost',
-    port: '4000',
-    path: '/dist'
-  },
   index: {
     src: './src/jade/*.jade',
     destination: 'dist/'
@@ -63,24 +56,12 @@ var config = {
   sitemap: {
     src: './src/sitemap.xml',
     destination: 'dist/'
+  },
+  htaccess: {
+    src: './src/.htaccess',
+    destination: 'dist/'
   }
 };
-
-// Webserver Config
-gulp.task('webserver', function() {
-  gulp.src('.')
-    .pipe(webserver({
-      host: config.server.host,
-      port: config.server.port,
-      livereload: true,
-      directoryListing: false
-    }));
-});
-
-// Open Browser to http://localhost:3000
-gulp.task('openbrowser', function() {
-  opn('http://'+ config.server.host +':'+ config.server.port + config.server.path);
-});
 
 // Jade 
 gulp.task('index', function() {
@@ -173,5 +154,4 @@ gulp.task('watch', function() {
 
 // Command line tasks
 gulp.task('build', ['index', 'zip', 'stylus', 'css', 'js', 'img', 'fav', 'thumbs', 'sketchsheets', 'fonts', 'sitemap']);
-gulp.task('w', ['build', 'watch']);
-gulp.task('default', ['build', 'webserver', 'watch', 'openbrowser']);
+gulp.task('default', ['build', 'watch']);

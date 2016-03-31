@@ -10,125 +10,84 @@ html(lang="en")
     meta(property='og:description', content='Download free printable device templates for UI & UX designers. Each sketch sheet contains a blank and dotted-grid version in in .png and .pdf formats')
     link(rel='stylesheet', href='css/style.css')
   body     
-  
-    // BG Gradient
-    
-    .gradient
-    
-    // Header
-    
-    header.hero
-      .wrap
-        .row
-          .column.six.logo-wrap
-            a(href='/')
-              .logo
-          .column.six.nav-wrap
-            a(href='http://twitter.com/sketchsheets' target='_blank') 
-              i.icon-twitter
-              | Follow us for updates
-          .column.twelve
-            .line
-          .column.twelve.about
-            h1 Ready to print device templates for UI & UX designers.
-            p All files contain a blank and dotted grid template in .png and .pdf formats.
-            p New devices are being added all the time, feel free to #[a(href='mailto:mail@sketchsheets.com') suggest a device.]
-          .column.twelve.mobile
-            .line
-            
-    // Orientation Filter
-    
-    section.filters.orientation-desktop
-      .wrap
-        .row
-          .column
-            span Devices
-            .filter.orientation
-              .filter-list(data-filter-group='orientation')
-                span Sort by:
-                button.button.checked(data-filter='') All
-                button.button(data-filter='.portrait') Portrait
-                button.button(data-filter='.landscape') Landscape
-                button.button(data-filter='.portrait-landscape') Mix
-            .line
-            
-    // Sidebar
-    
-    .wrap
-      aside.sidebar
-        .row
-          .column
-            // Device Filter
-            .filters
-              .filter.device
-                .filter-list(data-filter-group='device')
-                  span.title Devices
-                  button.button.checked(data-filter='') All
-                  button.button(data-filter='.iphone5') iPhone 5
-                  button.button(data-filter='.iphone6') iPhone 6
-                  button.button(data-filter='.ipad') iPad
-                  button.button(data-filter='.galaxynote5') Galaxy Note 5
-                  button.button(data-filter='.nexus5x') Nexus 5x
-                  button.button(data-filter='.web') Web
-                  button.button(data-filter='.applewatch') Apple Watch
-                  
-      // Orientation Filter
-                  
-      section.filters.orientation-mobile
-        .wrap
-          .row
-            .column
-              .filter.orientation
-                .filter-list(data-filter-group='orientation')
-                  span.title Sort by
-                  button.button.checked(data-filter='') All
-                  button.button(data-filter='.portrait') Portrait
-                  button.button(data-filter='.landscape') Landscape
-                  button.button(data-filter='.portrait-landscape') Mix
-              .line
-                
-      // Sketchsheets
 
-      section.grid
-        form(name='zips' method='post' action='zip.php')
-          .row.justify.grid-content
-            include includes/iphone5.jade
-            include includes/iphone6.jade
-            include includes/ipad.jade
-            include includes/galaxynote5.jade
-            include includes/nexus5x.jade
-            include includes/web.jade
-            include includes/applewatch.jade
-          input(type='submit' name='zipit' class='zipit')
-          .end
-            p #[a(href='spotify:track:5UgT7w6zVZjP3oyawMzbiK') This is the end]
-            p Feel like something's missing? #[a(href='mailto:mail@sketchsheets.com') Leave some feedback]
-      
-      // Download Collection
-      
-      .download-collection
-        button.download-collection-button
-          .button-label
-            | Download Collection
-          .collection-total
-            span.collection-total-count
-              | 0
-      
-      // Downloading
-      
-      .alert-wrap
-        .alert
-          .alert-label
-            | #[span #[i.icon-check]] Your download has started
-        
-            
+
+    // Header
+    header.header
+
+      // Logo and Nav
+      .row
+        .column.logo-wrap
+          a(href='/')
+            .logo
+        .column.nav-wrap
+          a(href='http://twitter.com/sketchsheets' target='_blank') 
+            | Follow us
+          a(href='mailto:mail@sketchsheets.com' target='_blank') 
+            | Suggest a device
+      // End Logo and Nav
+
+      // About
+      .row
+        .column.about
+          h1 Ready to print device sketch sheets
+      // End About
+
+      // Device Filter
+      .row
+        .column.filters
+          .filter.device
+            .filter-list(data-filter-group='device')
+              button.button.checked(data-filter='') All
+              button.button(data-filter='.iphone5') iPhone 5
+              button.button(data-filter='.iphone6') iPhone 6
+              button.button(data-filter='.ipad') iPad
+              button.button(data-filter='.galaxynote5') Galaxy Note 5
+              button.button(data-filter='.nexus5x') Nexus 5x
+              button.button(data-filter='.web') Web
+              button.button(data-filter='.applewatch') Apple Watch  
+      // End Device Filter
+
+
+    // End Header
+
+
+    // Sketchsheets
+    section.grid
+      form(name='zips' method='post' action='zip.php')
+        .row.justify.grid-content
+          include includes/iphone5.jade
+          include includes/iphone6.jade
+          include includes/ipad.jade
+          include includes/galaxynote5.jade
+          include includes/nexus5x.jade
+          include includes/web.jade
+          include includes/applewatch.jade
+        input(type='submit' name='zipit' class='zipit')
+        .end
+          p #[a(href='spotify:track:5UgT7w6zVZjP3oyawMzbiK') This is the end]
+          p Feel like something's missing? #[a(href='mailto:mail@sketchsheets.com') Leave some feedback]
+    // End Sketchsheets
+
+
+    // Download Collection
+    .download-collection
+      button.download-collection-button
+        .button-label
+          | Download Collection
+        .collection-total
+          span.collection-total-count
+            | 0
+    // End Download Collection
+
+
+    // Downloading
+    .alert-wrap
+      .alert
+        .alert-label
+          | #[span #[i.icon-check]] Your download has started
+    // End Downloading
+
+
     include includes/footer.jade
     include includes/scripts.jade
-    script.
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-36796299-3', 'auto');
-      ga('send', 'pageview');
