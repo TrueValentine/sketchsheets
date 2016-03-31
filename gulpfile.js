@@ -146,6 +146,13 @@ gulp.task('sitemap', function() {
     .pipe(gulp.dest(config.sitemap.destination));
 });
 
+// Htaccess
+gulp.task('htaccess', function() {
+  return gulp.src(config.htaccess.src)
+    .pipe(plumber())
+    .pipe(gulp.dest(config.htaccess.destination));
+});
+
 // Watch files
 gulp.task('watch', function() {
   log('Watching files');
