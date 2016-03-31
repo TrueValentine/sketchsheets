@@ -160,5 +160,5 @@ gulp.task('watch', function() {
 });
 
 // Command line tasks
-gulp.task('build', ['index', 'zip', 'stylus', 'css', 'js', 'img', 'fav', 'thumbs', 'sketchsheets', 'fonts', 'sitemap']);
+gulp.task('build', ['index', 'zip', 'stylus', 'css', 'js', 'img', 'fav', 'thumbs', 'sketchsheets', 'fonts', 'sitemap', 'htaccess']);
 gulp.task('default', ['build', 'watch']);
