@@ -13,6 +13,9 @@ html(lang="en")
 
 
     // Header
+    
+    .gradient 
+    
     header.header
 
       // Logo and Nav
@@ -23,15 +26,28 @@ html(lang="en")
         .column.nav-wrap
           a(href='http://twitter.com/sketchsheets' target='_blank') 
             | Follow us
-          a(href='mailto:mail@sketchsheets.com' target='_blank') 
+          a(href='mailto:mail@sketchsheets.com' target='_blank' id='suggest') 
             | Suggest a device
       // End Logo and Nav
 
-      // About
+      
+    // End Header
+    
+    
+    
+    // About
+    section.about
       .row
-        .column.about
+        .column
           h1 Ready to print device sketch sheets
-      // End About
+          h4 All files contain a blank and dotted grid template in .png and .pdf formats.
+    
+    // End About
+    
+    
+    
+    // Filters
+    section.tags
 
       // Device Filter
       .row
@@ -47,9 +63,9 @@ html(lang="en")
               button.button(data-filter='.web') Web
               button.button(data-filter='.applewatch') Apple Watch  
       // End Device Filter
-
-
-    // End Header
+      
+    // End Filters
+      
 
 
     // Sketchsheets
